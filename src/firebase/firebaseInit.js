@@ -4,7 +4,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDXp3THX4RbW5lcaSVHI5HNYBC-Lk8ieC8",
+    apiKey: process.env.FIREBASE_KEY,
     authDomain: "vueblog-9353a.firebaseapp.com",
     projectId: "vueblog-9353a",
     storageBucket: "vueblog-9353a.appspot.com",
