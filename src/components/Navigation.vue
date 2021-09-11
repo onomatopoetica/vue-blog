@@ -3,7 +3,7 @@
     <nav class="container">
       <div class="branding">
         <router-link class="header" :to="{ name: 'Home' }"
-          >Sunflower Blogs</router-link
+          >FireBlogs</router-link
         >
       </div>
       <div class="nav-links">
