@@ -6,15 +6,38 @@
       v-for="(post, index) in sampleBlogPost"
       :key="index"
     />
+    <div class="blog-card-wrap">
+      <div class="container">
+        <h3>View More Recent Blogs</h3>
+        <div class="blog-cards">
+          <BlogCard
+            :post="post"
+            v-for="(post, index) in sampleBlogCards"
+            :key="index"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="updates">
+      <div class="container">
+        <h2>Never miss a post. Register for your free account today!</h2>
+        <router-link class="router-button" to="#"
+          >Register for FireBlogs <Arrow class="arrow arrow-light" />
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import BlogPost from '@/components/BlogPost'
+import BlogCard from '@/components/BlogCard'
+import Arrow from '../assets/Icons/arrow-right-light.svg'
+// import blogPhotos from '../assets/blogPhotos'
 
 export default {
   name: 'Home',
-  components: { BlogPost },
+  components: { BlogPost, BlogCard, Arrow },
   data() {
     return {
       welcomeScreen: {
@@ -28,17 +51,20 @@ export default {
         {
           title: 'This is a Filler Title!',
           blogHTML: 'This is a filler blog post title!',
-          blogCoverPhotos: 'beautiful-stories'
+          blogCoverPhoto: 'beautiful-stories.jpg'
         },
         {
           title: 'This is a Filler Title!',
           blogHTML: 'This is a filler blog post title!',
-          blogCoverPhotos: 'beautiful-stories'
+          blogCoverPhoto: 'designed-for-everyone.jpg'
         }
       ]
     }
   },
   computed: {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards
+    },
     blogPostsFeed() {
       return this.$store.getters.blogPostsFeed
     },
@@ -60,7 +86,6 @@ export default {
     margin-bottom: 32px;
   }
 }
-
 .updates {
   .container {
     padding: 100px 25px;
@@ -71,7 +96,6 @@ export default {
       padding: 125px 25px;
       flex-direction: row;
     }
-
     .router-button {
       display: flex;
       font-size: 14px;
@@ -80,7 +104,6 @@ export default {
         margin-left: auto;
       }
     }
-
     h2 {
       font-weight: 300;
       font-size: 32px;
